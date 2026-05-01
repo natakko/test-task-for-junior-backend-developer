@@ -1,3 +1,5 @@
+DeepSeek
+
 Запрос:
 Я работаю над тестовым заданием на Go 1.23. Мне нужно добавить функционал периодических задач.Сейчас у меня есть такая таблица в БД: CREATE TABLE IF NOT EXISTS tasks (
 	id BIGSERIAL PRIMARY KEY,
