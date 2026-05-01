@@ -56,15 +56,37 @@ Swagger UI: http://localhost:8080/swagger/
 
 ### Схема БД
 
-task_templates          tasks                  task_instances
-┌──────────────┐       ┌──────────────┐       ┌──────────────────┐
-│ id (PK)      │       │ id (PK)      │       │ id (PK)          │
-│ title        │       │ title        │       │ template_id (FK) │
-│ description  │◄──────│ ...          │       │ task_id (FK)     │
-│ recurrence_* │       └──────────────┘       │ due_date         │
-│ start_date   │                              │ is_cancelled     │
-│ end_date     │                              └──────────────────┘
-└──────────────┘
+Таблица task_templates:
+- id (PK)
+- title
+- description
+- recurrence_type
+- daily_interval
+- monthly_days (JSONB)
+- specific_dates (JSONB)
+- parity_type
+- start_date
+- end_date
+- execution_time
+- status
+- created_at
+- updated_at
+
+Таблица tasks:
+- id (PK)
+- title
+- description
+- status
+- created_at
+- updated_at
+
+Таблица task_instances:
+- id (PK)
+- template_id (FK -> task_templates.id)
+- task_id (FK -> tasks.id)
+- due_date
+- generated_at
+- is_cancelled
 
 ### Граничные случаи
 
